@@ -56,18 +56,42 @@ namespace Test_Task
                 fileinfo = new FileInfo(filepath);
                 if (files.Select(x => x.FilePath).Contains(filepath)) // если список путей к файлу содержит выьранный пользователем путь к файлу 
                 {
-                    var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    //проверка
-                    switch (msgbox) // Выбор добавить файл(да/нет)
+                    //var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    byte[] fileBytes = File.ReadAllBytes(filepath); // считываем байты файла
+
+                    uint crc32 = CRC32.CalculateCRC32(fileBytes); // рассчет контрольной суммы файла под CRC32
+                    foreach (var file in files) // смотри каждый файл в файле-списке
                     {
-                        case MessageBoxResult.Yes: // В случае да
+                        if(file.Checksum != $"{crc32:X8}" && file.FilePath == filepath)
+                        {
+                            var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке, но отличаются контрольной суммой" +
+                                "\n Обновить контрольную сумму существующего файла?", 
+                                "Одинаковый путь и имя файла", 
+                                MessageBoxButton.YesNo, 
+                                MessageBoxImage.Question);
+
+                            switch (msgbox)
                             {
-                                AddFile(); // добавляем файл в список
-                                break;
+                                case MessageBoxResult.Yes: // Если да, то изменяем у существующего файла индекс
+                                    files[files.IndexOf(file)].Checksum = $"{crc32:X8}"; // находим индекс, по которому поменяем значение контрольной суммы
+                                    FileData.Items.Refresh(); // обновляем таблицу файла-списка
+
+                                    break;
+                                case MessageBoxResult.No: // Если нет, то ничего не изменяем и не добавляем
+                                    break;
                             }
-                        case MessageBoxResult.No: // в случае нет
-                            return;
+                            break;
+                        }
+                        else if (file.Checksum == $"{crc32:X8}" && file.FilePath == filepath)
+                        {
+                            MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке",
+                                "Одинаковый путь и имя файла",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Question);
+                        }
                     }
+
                 }
                 else // иначе если список путей к файлу не содержит путь к файлу, выбранный пользователем, то просто добавляем файл в список
                 {
