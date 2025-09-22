@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\test_task_NET_C#\\Test_task\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|d:\\test_task_net_c#\\test_task\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\file_json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:file_json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|d:\\test_task_net_c#\\test_task\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\crc32.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAwwCcBAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAADwv5gAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T17:16:28.414Z",
               "EditorCaption": ""
@@ -49,10 +49,9 @@
               "RelativeDocumentMoniker": "File_JSON.cs",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\File_JSON.cs",
               "RelativeToolTip": "File_JSON.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwFAAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T06:56:31.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T06:56:31.758Z"
             },
             {
               "$type": "Document",
@@ -68,15 +67,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-15T17:16:28.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:16:28.876Z"
             }
           ]
         }
