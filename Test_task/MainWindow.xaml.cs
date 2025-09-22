@@ -56,8 +56,8 @@ namespace Test_Task
                 fileinfo = new FileInfo(filepath);
                 if (files.Select(x => x.FilePath).Contains(filepath)) // если список путей к файлу содержит выьранный пользователем путь к файлу 
                 {
-                    var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке, все равно добавить файл в список?", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
+                    var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    //проверка
                     switch (msgbox) // Выбор добавить файл(да/нет)
                     {
                         case MessageBoxResult.Yes: // В случае да
