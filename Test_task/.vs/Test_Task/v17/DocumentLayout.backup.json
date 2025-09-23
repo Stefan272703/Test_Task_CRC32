@@ -38,10 +38,9 @@
               "RelativeDocumentMoniker": "..\\SAVE_JSON.json",
               "ToolTip": "D:\\test_task_NET_C#\\SAVE_JSON.json",
               "RelativeToolTip": "..\\SAVE_JSON.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-23T08:22:01.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T08:22:01.58Z"
             },
             {
               "$type": "Document",
@@ -51,7 +50,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAswK8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAowJcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T17:16:28.414Z",
               "EditorCaption": ""
@@ -66,8 +65,7 @@
               "RelativeToolTip": "File_JSON.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAswEYAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T06:56:31.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T06:56:31.758Z"
             },
             {
               "$type": "Document",
