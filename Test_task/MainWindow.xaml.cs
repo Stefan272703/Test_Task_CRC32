@@ -109,17 +109,19 @@ namespace Test_Task
                 
                 var check = Check_dublicates_Checksum($"{crc32:X8}"); // Проверка на совпадение контрольной суммы
 
-                if (check) // Если есть дубликат и пользователь выбрал поменять контрольную сумму
+                if (check.Item1) // Если есть дубликат и пользователь выбрал поменять контрольную сумму
                 {
-                    using (var stream = new FileStream(filepath, FileMode.Append))
+                    while (files.Select(x => x.Checksum).Contains($"{crc32:X8}")) // пока контрольная сумма добавляемого файла не станет уникальной
                     {
-                        stream.WriteByte(1); // Добавляем байт 
+                        using (var stream = new FileStream(filepath, FileMode.Append))
+                        {
+                            stream.WriteByte(1); // Добавляем байт 
+                        }
+
+                        fileBytes = File.ReadAllBytes(filepath); // считываем байты файла
+
+                        crc32 = CRC32.CalculateCRC32(fileBytes); // рассчет контрольной суммы файла под CRC32
                     }
-
-                    fileBytes = File.ReadAllBytes(filepath); // считываем байты файла
-
-                    crc32 = CRC32.CalculateCRC32(fileBytes); // рассчет контрольной суммы файла под CRC32
-
                     var file = new File_JSON { File_Name = fileinfo.Name, Checksum = $"{crc32:X8}", FilePath = filepath };
 
                     files.Add(file); // Добавление в список информации о файле
@@ -253,7 +255,7 @@ namespace Test_Task
         }
 
         // функция проверки на дубликаты контрольные суммы
-        bool Check_dublicates_Checksum(string cur_checksum)
+        (bool, int) Check_dublicates_Checksum(string cur_checksum)
         {
             files.Select(x => x.Checksum); // Выбираем только контрольные суммы
             if (files.Select(x => x.Checksum).Contains(cur_checksum)) // если файл-список содержит уже контрольную сумму
@@ -266,13 +268,13 @@ namespace Test_Task
                 switch (msg) // Выбор изменять не изменять контрольную сумму
                 {
                     case MessageBoxResult.Yes: // Возвращаем истину
-                        return true;
+                        return (true, files.Select(x => x.Checksum).Where(x => x == cur_checksum).Count()); // вовзращаем истину и количество изменений
                     case MessageBoxResult.No: // возвращаем ложь
                         //MessageBox.Show("Добавлен файл без изменения контрольной суммы", "Добавление", MessageBoxButton.OK, MessageBoxImage.Information);
-                        return false;
+                        return (false, 0);
                 }
             }
-            return false;
+            return (false, 0);
         }
 
 
