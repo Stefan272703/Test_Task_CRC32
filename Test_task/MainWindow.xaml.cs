@@ -65,7 +65,7 @@ namespace Test_Task
                     {
                         if(file.Checksum != $"{crc32:X8}" && file.FilePath == filepath)
                         {
-                            var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке, но отличаются контрольной суммой" +
+                            var msgbox = MessageBox.Show($"Выбранный файл {filepath} со схожими путем и именем уже есть в файле-списке, но отличаются контрольной суммой" +
                                 "\n Обновить контрольную сумму существующего файла?", 
                                 "Одинаковый путь и имя файла", 
                                 MessageBoxButton.YesNo, 
@@ -85,7 +85,7 @@ namespace Test_Task
                         }
                         else if (file.Checksum == $"{crc32:X8}" && file.FilePath == filepath)
                         {
-                            MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке",
+                            MessageBox.Show($"Выбранный файл {filepath} со схожими путем и именем уже есть в файле-списке",
                                 "Одинаковый путь и имя файла",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Question);
