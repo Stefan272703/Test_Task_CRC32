@@ -54,24 +54,44 @@ namespace Test_Task
             {
                 filepath = openFileDialog.FileName;
                 fileinfo = new FileInfo(filepath);
+
+
                 if (files.Select(x => x.FilePath).Contains(filepath)) // если список путей к файлу содержит выьранный пользователем путь к файлу 
                 {
-                    //var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    //var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке, все равно добавить файл в список?", "Одинаковый путь и имя файла", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                     byte[] fileBytes = File.ReadAllBytes(filepath); // считываем байты файла
 
-                    uint crc32 = CRC32.CalculateCRC32(fileBytes); // рассчет контрольной суммы файла под CRC32
-                    foreach (var file in files) // смотри каждый файл в файле-списке
-                    {
-                        if(file.Checksum != $"{crc32:X8}" && file.FilePath == filepath)
-                        {
-                            var msgbox = MessageBox.Show($"Выбранный файл {filepath} со схожими путем и именем уже есть в файле-списке, но отличаются контрольной суммой" +
-                                "\n Обновить контрольную сумму существующего файла?", 
-                                "Одинаковый путь и имя файла", 
-                                MessageBoxButton.YesNo, 
-                                MessageBoxImage.Question);
+                    uint crc32 = CRC32.CalculateCRC32(fileBytes); // рассчитываем CRC32 файла
 
-                            switch (msgbox)
+
+                    foreach (var file in files)
+                    {
+                        if (file.Checksum != $"{crc32:X8}" && file.FilePath == filepath)
+                        {
+                            var msg = MessageBox.Show("Выбранный файл со схожим путем и именем есть в файле-списе, но отличаются контрольной суммой. Обновить контрольную сумму существующего файла?",
+                                "Одинаковый путь и имя файла",
+                                MessageBoxButton.YesNo,
+                                MessageBoxImage.Question);
+                            switch (msg)
+                            {
+                                case MessageBoxResult.Yes:
+                                    files[files.IndexOf(file)].Checksum = $"{crc32:X8}";
+                                    FileData.Items.Refresh(); // Обновляем таблицу, для отображения новго результата
+                                    break;
+                                case MessageBoxResult.No:
+                                    break;
+                            }
+
+                        }
+                    }
+
+                    var msgbox = MessageBox.Show("Выбранный файл со схожими путем и именем уже есть в файле-списке, как и контрольная сумма", "Одинаковый путь и имя файла", MessageBoxButton.OK, MessageBoxImage.Information);
+                    /*switch (msgbox) // Выбор добавить файл(да/нет)
+                    {
+                        case MessageBoxResult.OK:
+                            break;
+                        case MessageBoxResult.Yes: // В случае да
                             {
                                 case MessageBoxResult.Yes: // Если да, то изменяем у существующего файла индекс
                                     files[files.IndexOf(file)].Checksum = $"{crc32:X8}"; // находим индекс, по которому поменяем значение контрольной суммы
@@ -81,17 +101,9 @@ namespace Test_Task
                                 case MessageBoxResult.No: // Если нет, то ничего не изменяем и не добавляем
                                     break;
                             }
-                            break;
-                        }
-                        else if (file.Checksum == $"{crc32:X8}" && file.FilePath == filepath)
-                        {
-                            MessageBox.Show($"Выбранный файл {filepath} со схожими путем и именем уже есть в файле-списке",
-                                "Одинаковый путь и имя файла",
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Question);
-                        }
-                    }
-
+                        case MessageBoxResult.No: // в случае нет
+                            return;
+                    }*/
                 }
                 else // иначе если список путей к файлу не содержит путь к файлу, выбранный пользователем, то просто добавляем файл в список
                 {
@@ -264,7 +276,10 @@ namespace Test_Task
                     "Совпадение контрольных сумм",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
-
+                //var msg = MessageBox.Show("Контрольная сумма добавляемого файла не совпадает с суммой существующего файла. Обновить контрольную сумму?",
+                //    "Не свопадение CRC32",
+                //    MessageBoxButton.YesNo,
+                //    MessageBoxImage.Question);
                 switch (msg) // Выбор изменять не изменять контрольную сумму
                 {
                     case MessageBoxResult.Yes: // Возвращаем истину
