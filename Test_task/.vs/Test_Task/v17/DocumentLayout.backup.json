@@ -7,11 +7,7 @@
       "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\test_task_NET_C#\\lol1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\test_task_NET_C#\\SAVE_JSON.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\file_json.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -20,6 +16,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|D:\\test_task_NET_C#\\Test_task\\crc32.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F93D362-B57F-4CAB-8FC9-3995D86D7E06}|Test_Task.csproj|solutionrelative:crc32.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\test_task_NET_C#\\lol1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,14 +33,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "lol1.json",
-              "DocumentMoniker": "D:\\test_task_NET_C#\\lol1.json",
-              "RelativeDocumentMoniker": "..\\lol1.json",
-              "ToolTip": "D:\\test_task_NET_C#\\lol1.json",
-              "RelativeToolTip": "..\\lol1.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "Title": "SAVE_JSON.json",
+              "DocumentMoniker": "D:\\test_task_NET_C#\\SAVE_JSON.json",
+              "RelativeDocumentMoniker": "..\\SAVE_JSON.json",
+              "ToolTip": "D:\\test_task_NET_C#\\SAVE_JSON.json",
+              "RelativeToolTip": "..\\SAVE_JSON.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-22T18:20:16.264Z",
+              "WhenOpened": "2025-09-23T08:22:01.58Z",
               "EditorCaption": ""
             },
             {
@@ -52,26 +51,27 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAIwEkAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAswK8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T17:16:28.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "File_JSON.cs",
               "DocumentMoniker": "D:\\test_task_NET_C#\\Test_task\\File_JSON.cs",
               "RelativeDocumentMoniker": "File_JSON.cs",
               "ToolTip": "D:\\test_task_NET_C#\\Test_task\\File_JSON.cs",
               "RelativeToolTip": "File_JSON.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAswEYAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T06:56:31.758Z"
+              "WhenOpened": "2025-09-17T06:56:31.758Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "CRC32.cs",
               "DocumentMoniker": "D:\\test_task_NET_C#\\Test_task\\CRC32.cs",
               "RelativeDocumentMoniker": "CRC32.cs",
@@ -83,13 +83,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\test_task_NET_C#\\Test_task\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "DocumentIndex": 4,
+              "Title": "lol1.json",
+              "DocumentMoniker": "D:\\test_task_NET_C#\\lol1.json",
+              "RelativeDocumentMoniker": "..\\lol1.json",
+              "ToolTip": "D:\\test_task_NET_C#\\lol1.json",
+              "RelativeToolTip": "..\\lol1.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-15T17:16:28.876Z"
             }
           ]

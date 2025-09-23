@@ -70,8 +70,6 @@ namespace Test_Task
                     // получаем данные из файла json
                     ObservableCollection<File_JSON> file_JSON = JsonConvert.DeserializeObject<ObservableCollection<File_JSON>>(json_read);
 
-                    MessageBox.Show("Файл импортирован в таблицу");
-
                     return file_JSON;
                 }
             }

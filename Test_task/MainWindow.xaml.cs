@@ -172,6 +172,8 @@ namespace Test_Task
                     Check_Has_Or_Correct_CheckSum(file); // вызов метода для наличия или проверки на корректность контрольной суммы
 
                 }
+                MessageBox.Show("Файл импортирован в таблицу");
+
                 //files.CollectionChanged -= File_JSON_CollectionChanged; // Отписка на соыбтие, когда закончили добавлять файлы
             }
         }
@@ -276,10 +278,6 @@ namespace Test_Task
                     "Совпадение контрольных сумм",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
-                //var msg = MessageBox.Show("Контрольная сумма добавляемого файла не совпадает с суммой существующего файла. Обновить контрольную сумму?",
-                //    "Не свопадение CRC32",
-                //    MessageBoxButton.YesNo,
-                //    MessageBoxImage.Question);
                 switch (msg) // Выбор изменять не изменять контрольную сумму
                 {
                     case MessageBoxResult.Yes: // Возвращаем истину
