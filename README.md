@@ -42,5 +42,15 @@
 После импорта
 <img width="1325" height="516" alt="image" src="https://github.com/user-attachments/assets/5b779e85-ccae-47f9-b0b4-735cd2d0cc93" /> <br />
 Особенности при импорте файла-списка: <br />
-1. Файл-список может быть модифицирован(поменяли значение, добавили байт в файл-список)
+1. Файл-список может быть модифицирован(поменяли значение, добавили байт в файл-список). Появится уведомление о неисправности JSON <br />
+<img width="1095" height="524" alt="image" src="https://github.com/user-attachments/assets/5acea62f-d85d-4bdd-af67-c12f7f49b939" />
+2. Когда поменяли путь к файлу и контрольную сумму в самом файле-списке JSON, пользователю предлагается в зависимости от значений в файле-списке: <br />
+   1) поменять путь к файлу, если неправильно введен
+      <img width="1019" height="535" alt="image" src="https://github.com/user-attachments/assets/89d85428-a9ff-4ed7-972a-f9042b6d7f96" />
+   2) автоматически пересчитать контрольную сумму файла при правильном пути к файлу
+      <img width="1006" height="498" alt="image" src="https://github.com/user-attachments/assets/a2a01603-f0b3-49e3-a28a-75440e0c6e01" />
+Результат:
+<img width="1014" height="533" alt="image" src="https://github.com/user-attachments/assets/2695292e-f917-4ae7-9e05-8e123cc0b363" />
+
+
 
