@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test_Task"
         mc:Ignorable="d"
-        Title="ProgressBarFiles" Height="118" Width="800">
+        Title="ProgressBarFiles" Height="131" Width="800">
     <Grid Margin="10,10,10,10">
-        <ProgressBar x:Name="ProgressBar" Minimum="40" Maximum="100" Value="0" Margin="0,10,0,10"/>
+        <ProgressBar x:Name="ProgressBar"  Margin="0,51,0,6" ValueChanged="ProgressBar_ValueChanged"/>
+        <Label x:Name="TextFileName" Content="Label" Margin="0,10,0,0" VerticalAlignment="Top" Height="36"/>
 
     </Grid>
 </Window>
