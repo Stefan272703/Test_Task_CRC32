@@ -19,7 +19,7 @@
             <RowDefinition Height="61*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="FileData" SelectionMode="Extended"
-                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding}" Margin="10,10,10,5" Grid.ColumnSpan="5" CellEditEnding="FileData_CellEditEnding" PreviewMouseLeftButtonDown="FileData_PreviewMouseLeftButtonDown" BeginningEdit="FileData_BeginningEdit" >
+                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding}" Margin="10,10,10,5" Grid.ColumnSpan="5" CellEditEnding="FileData_CellEditEnding" PreviewMouseLeftButtonDown="FileData_PreviewMouseLeftButtonDown" >
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя файла" Binding="{Binding Path = FileName, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
@@ -30,16 +30,15 @@
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <EventSetter Event="PreviewMouseLeftButtonDown" Handler="FileData_PreviewMouseLeftButtonDown">
-
                     </EventSetter>
                 </Style>
             </DataGrid.CellStyle>
 
         </DataGrid>
         <Button x:Name="ButtonAdd" Content="Добавить" Margin="10,10,10,12" Grid.Row="1" Click="AddFile_Click"/>
-        <Button x:Name="ButtonSave" Grid.Column="3" Content="Сохранить Как" Margin="10,10,10,12" Grid.Row="1" Click="SaveAsFile_Click"/>
+        <Button x:Name="ButtonSaveAs" Grid.Column="3" Content="Сохранить Как" Margin="10,10,10,12" Grid.Row="1" Click="SaveAsFile_Click"/>
         <Button x:Name="ButtonImport" Grid.Column="2" Content="Импорт" Margin="10,10,10,13" Grid.Row="1" Click="ImportFile_Click"/>
         <Button x:Name="ButtonDelete" Grid.Column="1" Content="Удалить строку(-и)" Margin="10,10,10,12" Grid.Row="1" Click="DeleteRow"/>
-        <Button Grid.Column="4" Content="Сохранить" Margin="10,10,10,13" Grid.Row="1" Click="Save_Click"/>
+        <Button x:Name="ButtonSave" Grid.Column="4" Content="Сохранить" Margin="10,10,10,13" Grid.Row="1" Click="Save_Click"/>
     </Grid>
 </Window>
