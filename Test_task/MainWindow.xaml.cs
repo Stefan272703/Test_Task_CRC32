@@ -382,6 +382,8 @@ namespace TestTask
                 }
             }
         }
+        // Проверка git pull
+
 
         // событие нажатия клавишой мыши на ячейку "Путь к файлу"
         private void FileData_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
