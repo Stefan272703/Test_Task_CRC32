@@ -5,7 +5,11 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Threading;
+using Test_Task;
 
 /*
   Класс для реализации контрольной суммы на CRC32
@@ -46,13 +50,39 @@ namespace TestTask
             byte[] buffer = new byte[4 * 1024 * 1024]; // 8 MB
             int bytesRead;
 
+            // Создание окна ProgressBar
+            ProgressBarFiles progressBarFiles = null;
+            Application.Current.Dispatcher.Invoke(() => // вызываем ProgressBar в UI-потоке
+            { 
+                progressBarFiles = new ProgressBarFiles();
+                progressBarFiles.TextFileName.Content = filepath;
+                progressBarFiles.Show();
+            });
+
+            // Запуск чтения файла
             using (FileStream fs = File.OpenRead(filepath))
             {
+                long totalBytes = fs.Length; // длина файла
+                long bytesProcessed = 0; // байтов прочитано
+
                 while ((bytesRead = fs.Read(buffer,0,buffer.Length)) > 0)
                 {
+                    bytesProcessed += bytesRead;
+                    int progressPercentage = (int)((bytesProcessed * 100) / totalBytes);
+
                     crc = UpdateCRC32(crc, buffer, bytesRead);
+
+                    Application.Current.Dispatcher.Invoke(() => // заполняем progressBar
+                    {
+                        progressBarFiles.ProgressBar.Value = progressPercentage;
+                    });
                 }
             }
+
+            Application.Current.Dispatcher.Invoke(() => // закрываем ProgressBar в UI-потоке
+            {
+                progressBarFiles.Close();
+            });
 
             return crc ^ 0xFFFFFFFF; // Финальное применение XOR
         }
