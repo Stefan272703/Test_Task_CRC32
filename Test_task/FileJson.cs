@@ -11,16 +11,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Test_Task
+namespace TestTask
 {
     public class FileJson: INotifyPropertyChanged
     {
+        string _FilePath;
 
-        public string File_Name { get; set; } // имя файла
+        public string FileName { get; set; } // имя файла
 
+        public string OldFilePath { get; set; } // путь к файлу до редактирования 
+        public string OldFileName { get; set; } // имя файла до редактирования
         public string Checksum { get; set; } // контрольная сумма
 
-        public string FilePath { get; set; } // Путь к Файлу
+        public string FilePath { 
+            get => _FilePath;
+            set 
+            { 
+                _FilePath = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(FileName));
+                
+            } 
+        } 
+        // Путь к Файлу
+
+
+
 
         public FileJson() // конструктор по умолчанию
         {
@@ -36,7 +52,7 @@ namespace Test_Task
 
 
         // Сохранение файла JSON
-        public static void SaveJson(ObservableCollection<FileJson> files)
+        public static void SaveAsJson(ObservableCollection<FileJson> files)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog(); // Открываем диалоговое окно для сохранения данных
             saveFileDialog.Filter = "*.json|*.json";
@@ -75,7 +91,7 @@ namespace Test_Task
             }
             catch
             {
-                MessageBox.Show("Выбран не то файл JSON, поддерживающий данный файл-список, или данные были модцифицрованы", "Неверный файл JSON", MessageBoxButton.OK,MessageBoxImage.Warning);
+                MessageBox.Show("Выбран не то файл JSON, поддерживающий данный файл-список, или данные были модцифицрованы", "Неверный файл JSON", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return null;
             }
             return null;
