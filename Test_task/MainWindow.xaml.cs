@@ -380,9 +380,12 @@ namespace TestTask
                     File.Move(file.OldFilePath, file.FilePath); // перемещаем файл в новый путь или с новым именем
                     file.OldFilePath = null; // делаем старый путь к файлу пустым
                 }
+                else if (File.Exists(file.FilePath))
+                {
+                    MessageBox.Show($"Файл {file.FilePath} уже есть по данному пути");
+                }
             }
         }
-        // Проверка git pull
 
 
         // событие нажатия клавишой мыши на ячейку "Путь к файлу"
