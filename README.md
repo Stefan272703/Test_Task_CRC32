@@ -7,7 +7,8 @@
 1. Добавлять файл
 2. Удалять строку(-и)
 3. Импорт
-4. Сохранить 
+4. Сохранить
+5. Сохранить как
 <img width="509" height="281" alt="Main_Window(begin)" src="https://github.com/user-attachments/assets/466bb5a8-5db0-4314-bdf6-7e9feb391f1e" />
 
 ### 2. Добавление файла
