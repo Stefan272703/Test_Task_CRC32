@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_Task.Properties
+namespace TestTask.Properties
 {
 
 
