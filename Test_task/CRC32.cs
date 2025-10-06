@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -10,7 +11,7 @@ using System.Windows.Documents;
   Класс для реализации контрольной суммы на CRC32
  */
 
-namespace Test_Task
+namespace TestTask
 {
     public static class CRC32 
     {
@@ -39,18 +40,32 @@ namespace Test_Task
             }
         }
 
-        public static uint CalculateCRC32(byte[] bytesOfFile)
+        public static uint CalculateCRC32(string filepath)
         {
             uint crc = 0xFFFFFFFF; // начальное значение
+            byte[] buffer = new byte[4 * 1024 * 1024]; // 8 MB
+            int bytesRead;
 
-            foreach (byte b in bytesOfFile) // смотрим каждый байт опрделенного файла
+            using (FileStream fs = File.OpenRead(filepath))
             {
-                byte index = ((byte)((crc & 0xFFFFFFFF) ^ b)); //XOR
-                crc = (crc >> 8) ^ Table[index]; // Смещение
+                while ((bytesRead = fs.Read(buffer,0,buffer.Length)) > 0)
+                {
+                    crc = UpdateCRC32(crc, buffer, bytesRead);
+                }
             }
+
             return crc ^ 0xFFFFFFFF; // Финальное применение XOR
         }
 
+        private static uint UpdateCRC32(uint crc, byte[] data, int length)
+        {
+            for (int i = 0; i < length; i++) 
+            {
+                byte index = (byte)((crc & 0xFF) ^ data[i]);
+                crc = (crc >> 8) ^ Table[index];
+            }
+            return crc;
+        }
     }
     
 }
