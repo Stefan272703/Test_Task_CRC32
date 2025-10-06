@@ -18,7 +18,6 @@ namespace TestTask
         string _FilePath;
 
         public string FileName { get; set; } // имя файла
-
         public string OldFilePath { get; set; } // путь к файлу до редактирования 
         public string OldFileName { get; set; } // имя файла до редактирования
         public string Checksum { get; set; } // контрольная сумма
@@ -33,10 +32,6 @@ namespace TestTask
                 
             } 
         } 
-        // Путь к Файлу
-
-
-
 
         public FileJson() // конструктор по умолчанию
         {
