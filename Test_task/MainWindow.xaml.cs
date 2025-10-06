@@ -48,9 +48,6 @@ namespace TestTask
 
         }
 
-
-
-
         // Функция добавления файла в список
         private async void AddFile_Click(object sender, RoutedEventArgs e)
         {
@@ -58,18 +55,11 @@ namespace TestTask
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = " Все файлы *.*|*.*";
-            //IsEnabled = false;
 
             FileInfo fileinfo = null;
 
             if (openFileDialog.ShowDialog() == true)
             {
-                //ProgressBar progressBar = new ProgressBar();
-                //ProgressBarFiles progressBarFiles = new ProgressBarFiles();
-
-
-                //progressBarFiles.Show();
-                //IsEnabled = false;
                 foreach (var filepath in openFileDialog.FileNames) // перебираем каждый файл, выбранный пользователем в диалоговом окне
                 {
                     fileinfo = new FileInfo(filepath);
@@ -120,7 +110,9 @@ namespace TestTask
                 ButtonAdd.IsEnabled = false;
                 ButtonDelete.IsEnabled = false;
                 ButtonImport.IsEnabled = false;
+                ButtonSaveAs.IsEnabled = false;
                 ButtonSave.IsEnabled = false;
+
                 // порисходит рассчет CRC32 ассинхронно, чтобы приложение не зависло и пользователь по желанию, мог редактировать таблицу
                 var crc32 = await Task.Run(() => CRC32.CalculateCRC32(filepath)); // рассчитываем CRC32 для определенного файла
 
@@ -153,6 +145,7 @@ namespace TestTask
                 ButtonAdd.IsEnabled = true;
                 ButtonDelete.IsEnabled = true;
                 ButtonImport.IsEnabled = true;
+                ButtonSaveAs.IsEnabled = true;
                 ButtonSave.IsEnabled = true;
             }
         }
@@ -172,17 +165,15 @@ namespace TestTask
             ButtonAdd.IsEnabled = false;
             ButtonDelete.IsEnabled = false;
             ButtonImport.IsEnabled = false;
+            ButtonSaveAs.IsEnabled = false;
             ButtonSave.IsEnabled = false;
             
             var files_json = FileJson.Import_JSON(); // получаем список файлов, сохраненных в JSON
-            //MessageBox.Show("KEK");
             if (files_json == null) { }
             else
             {
                 foreach (var file in files_json) // Импорт файла из сохраненного файла-списка JSON
                 {
-                    // Добавляем каждый файл в список
-                    //Thread.Sleep(10000);
                     await CheckHasOrCorrectCheckSum(file); // вызов метода для наличия или проверки на корректность контрольной суммы
 
                 }
@@ -192,6 +183,7 @@ namespace TestTask
             ButtonAdd.IsEnabled = true;
             ButtonDelete.IsEnabled = true;
             ButtonImport.IsEnabled = true;
+            ButtonSaveAs.IsEnabled = true;
             ButtonSave.IsEnabled = true;
         }
 
@@ -216,8 +208,6 @@ namespace TestTask
                         {
                             string filePath = openFileDialog.FileName;
                             var fileinfo = new FileInfo(filePath);
-
-                            //byte[] fileBytes = File.ReadAllBytes(filePath); // считываем байты файла
 
                             uint crc32 = await Task.Run(() => CRC32.CalculateCRC32(filePath)); // рассчет контрольной суммы файла под CRC32
 
@@ -325,7 +315,6 @@ namespace TestTask
                             {
                                 Files[rowIndex].OldFilePath = Files[rowIndex].FilePath;
                             }
-
 
                             Files[rowIndex].FilePath = Files[rowIndex].FilePath.Substring(0, indexLastSlech) + "\\" + FileAndFormat;// Перезаписываем путь к файлу
 
@@ -435,11 +424,6 @@ namespace TestTask
                     } 
                 }
             }
-        }
-
-        private void FileData_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            //MessageBox.Show("Начало");
         }
     }
 }
