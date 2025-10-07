@@ -47,7 +47,7 @@ namespace TestTask
         public static uint CalculateCRC32(string filepath)
         {
             uint crc = 0xFFFFFFFF; // начальное значение
-            byte[] buffer = new byte[4 * 1024 * 1024]; // 8 MB
+            byte[] buffer = new byte[8 * 1024 * 1024]; // 8 MB
             int bytesRead;
 
             // Создание окна ProgressBar
