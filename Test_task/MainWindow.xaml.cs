@@ -72,7 +72,7 @@ namespace TestTask
                         {
                             if (file.Checksum != $"{crc32:X8}" && file.FilePath == filepath)
                             {
-                                var message = MessageBox.Show("Выбранный файл со схожим путем и именем есть в файле-списке, но отличаются контрольной суммой. Обновить контрольную сумму существующего файла?",
+                                var message = MessageBox.Show($"Выбранный файл {filepath} со схожим путем и именем есть в файле-списке, но отличаются контрольной суммой. Обновить контрольную сумму существующего файла?",
                                     "Одинаковый путь и имя файла",
                                     MessageBoxButton.YesNo,
                                     MessageBoxImage.Question);
@@ -388,7 +388,11 @@ namespace TestTask
                     file.OldFilePath = null; // делаем старый путь к файлу пустым
                     FileData.Items.Refresh(); // обновляем таблицу
                 }
-                else if (File.Exists(file.FilePath))
+                else if (File.Exists(file.FilePath) && file.OldFilePath == null)
+                {
+                    //MessageBox.Show($"Файл {file.FilePath} уже есть по данному пути");
+                }
+                else
                 {
                     MessageBox.Show($"Файл {file.FilePath} уже есть по данному пути");
                 }
