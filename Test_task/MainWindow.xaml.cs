@@ -293,9 +293,6 @@ namespace TestTask
                     {
                         int rowIndex = e.Row.GetIndex(); // получаем индекст строки, в которм произошло изменение ячйеки
                         var textbox = e.EditingElement as TextBox; // получаем textbox ячейки, которая редактируется
-                        
-                        //var FilePath = Files[rowIndex].FilePath; // путь к файлу
-                        //var OldFilePath = Files[rowIndex].OldFilePath; // старый путь к файл
 
                         string[] FileSplit = Files[rowIndex].FilePath.Split('\\').Last().Split('.');// получаем список значений разделенных точкой файла
                         string FileAndFormat = textbox.Text.Split('.').First(); // Заполняем файл с расширением
@@ -390,7 +387,6 @@ namespace TestTask
                 }
                 else if (File.Exists(file.FilePath) && file.OldFilePath == null)
                 {
-                    //MessageBox.Show($"Файл {file.FilePath} уже есть по данному пути");
                 }
                 else
                 {
