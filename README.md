@@ -7,45 +7,70 @@
 1. Добавлять файл
 2. Удалять строку(-и)
 3. Импорт
-4. Сохранить
-5. Сохранить как
-<img width="509" height="281" alt="Main_Window(begin)" src="https://github.com/user-attachments/assets/466bb5a8-5db0-4314-bdf6-7e9feb391f1e" />
+4. Сохранить как
+5. Сохранить
+<img width="1017" height="562" alt="image" src="https://github.com/user-attachments/assets/e4e0578a-e987-49ee-8ce3-bc170025cb0e" /> <br />
+## Обновление: <br />
+- Файл больше 2 Гб может читаться и загружаться в таблицу приложения <br />
+- Создан ProgressBar, отображающий процесс чтения файла <br />
+<img width="1196" height="565" alt="image" src="https://github.com/user-attachments/assets/dc173a87-5298-4e60-8db4-03d3b412e540" />
+ 
 
 ### 2. Добавление файла
-Нажимая на кнопку "Добавить", пользователю открывается диалоговое окно, в котором надо выбрать файл, чтобы загрузить его "Имя_файла", "Контрольная сумма CRC32" и "Путь к файлу" в список <br />
+Нажимая на кнопку "Добавить", пользователю открывается диалоговое окно, в котором надо выбрать файл или файлы, чтобы загрузить его "Имя_файла", "Контрольная сумма CRC32" и "Путь к файлу" в список <br />
 Рассчет контрольной суммы при добавлении файла производится автоматически
-<img width="1562" height="530" alt="image" src="https://github.com/user-attachments/assets/f8fd83f7-a765-4e56-8f58-9af6e46d5e13" />
+<img width="1501" height="562" alt="image" src="https://github.com/user-attachments/assets/07ee2662-f1cd-4c2d-b4c1-f0f6361a5008" />
+
 Особенности при добавлении файла: <br />
 1. Когда пользователь добавляет файл, который уже есть в списке (Одинаковый путь к файлу), то файл не добавляется и появляется уведомление, Выбранный файл со схожими путем и именем уже есть в файле-списке <br />
-<img width="1008" height="505" alt="image" src="https://github.com/user-attachments/assets/c5850bea-18b9-469c-85ec-e5e30e53640b" />
+<img width="1500" height="563" alt="image" src="https://github.com/user-attachments/assets/68fa09a4-8e6a-4258-a8d7-35c4c914e081" />
+
 2. Когда пользователь добавляет файл, который уже есть в списке (Одинаковый путь к файлу), но отличаются контрольной суммой, то появляется уведомление, что Выбранный файл со схожими путем и именем уже есть в файле-списке, но отличаются контрольной суммой. Обновить контрольную сумму существующего файла?
-<img width="1016" height="534" alt="image" src="https://github.com/user-attachments/assets/10ff276b-bfb2-4373-9833-0576bc89bfa3" />
+<img width="1452" height="562" alt="image" src="https://github.com/user-attachments/assets/f98ff93c-3586-4a4c-af73-34d30aaf7c72" /> <br />
+
 После нажатия на "Да", существующий файл обновляет контрольную сумму на сумму добавляемого файла, но добавляемый файл не вставляется в список
-<img width="1018" height="528" alt="image" src="https://github.com/user-attachments/assets/84b45b2f-c0da-4974-b984-aca83e935687" /> <br />
+<img width="1453" height="565" alt="image" src="https://github.com/user-attachments/assets/8822ff4e-b2c4-425f-8c3d-d771c9dca3d0" />
+ <br />
 3. В случаях, когда контрольная сумма добавляемого файла совпадает с суммой уже в таблице приложения, пользователю приходит уведомление, что можно поменять контрольную сумму добавляемого файла, если "ДА", то меняется, иначе не меняется
-<img width="1006" height="505" alt="image" src="https://github.com/user-attachments/assets/39040cd4-adac-4ab8-b430-9269b0697651" />
-<img width="1009" height="516" alt="image" src="https://github.com/user-attachments/assets/7dc52ec9-d00e-409a-af75-37f5182702e9" /> <br />
+<img width="1244" height="594" alt="image" src="https://github.com/user-attachments/assets/72b7c03c-08ce-4160-a3bc-7edb0b8dc65d" />
+
+<img width="1228" height="597" alt="image" src="https://github.com/user-attachments/assets/97fadaa1-1653-4669-86d6-a9dfe221cdd1" /><br />
 
 4. В остальных случаях файл добавлется в список
 
 ### 3. Удаление строки
 Нажимая на кнопку "Удалить строку" предварительно выбрав одну или несколько строк, пользователь может удалить данные строки из списка. <br />
-До удаления строки <img width="1021" height="530" alt="image" src="https://github.com/user-attachments/assets/6707616c-36af-458a-b7e3-61268a5d6bed" />
-После удаления строки <img width="1015" height="522" alt="image" src="https://github.com/user-attachments/assets/8e64ca2d-4110-45b2-94a4-71a6d2a81441" />
+<img width="1453" height="598" alt="image" src="https://github.com/user-attachments/assets/103a11c9-739e-485f-952b-8ac378a2f15f" />
+После удаления строки <img width="1166" height="598" alt="image" src="https://github.com/user-attachments/assets/cc98510c-bcf8-478e-9513-9fdfcbaac834" />
+
 Особенности при удалении строки: <br />
-1. Если пользователь не выбрал ни одну из строк, то появляется уведомление, что не выбраны строки для удлаения и ничего не происходит <img width="1000" height="464" alt="image" src="https://github.com/user-attachments/assets/03c36b97-2932-42d9-a964-e4f3993a1323" />
+1. Если пользователь не выбрал ни одну из строк, то появляется уведомление, что не выбраны строки для удлаения и ничего не происходит <img width="1457" height="597" alt="image" src="https://github.com/user-attachments/assets/153ee95e-17ff-4dba-a2dd-9a3f05704e8a" />
+
 
 ### 4. Сохранени файла-списка в формат JSON (Сохранить как)
-Нажимая на кнопку "Сохранить", Пользователю открывается диалоговое окно сохранения файла. После редактирования и внесения изменений строк файлов в приложении, все изменения сохраняются в файле формата JSON <img width="1202" height="726" alt="image" src="https://github.com/user-attachments/assets/186ce7b8-7b8f-437f-a119-8a4410886b91" />
+Нажимая на кнопку "Сохранить как", Пользователю открывается диалоговое окно сохранения файла. После редактирования и внесения изменений строк файлов в приложении, все изменения сохраняются в файле формата JSON <img width="1202" height="726" alt="image" src="https://github.com/user-attachments/assets/186ce7b8-7b8f-437f-a119-8a4410886b91" />
 <img width="187" height="226" alt="image" src="https://github.com/user-attachments/assets/a0d64c2e-6fd4-43ab-9d13-b9c919fdca97" /> <br />
-Вид сохранямого файла-списка формата JSON <img width="876" height="529" alt="image" src="https://github.com/user-attachments/assets/49b13407-6af3-4345-8f25-c454fef87cec" />
+Вид сохранямого файла-списка формата JSON <img width="777" height="447" alt="image" src="https://github.com/user-attachments/assets/80acfded-62ed-4300-83e9-d82de0bead5e" />
 
-### 4. Сохранени файлов (имя и новый путь к файлу)
+
+### 5. Сохранени файлов (имя и новый путь к файлу)
+Меняя ячейки в столбцах "Имя файла" и "Путь файла", Пользователю дается возможность сохранить с новым именем данный файл по определенному пути <br />
+**До изменений имени файла и пути**
+<img width="1494" height="559" alt="image" src="https://github.com/user-attachments/assets/218a9f2b-eb53-40b1-9092-3570b034d557" />
+
+**После изменений имени файла и пути **
+<img width="1494" height="560" alt="image" src="https://github.com/user-attachments/assets/7edbca96-a3be-4580-826c-48c4e14655d3" />
+Нажимая на кнопку "Сохранить", Данные измененные файлы сохраняются под новым именем и ,если пользователь поменял путь, то перемещается по данному пути
+<img width="1494" height="561" alt="image" src="https://github.com/user-attachments/assets/34586d0b-29c1-42d5-9063-5bcf3979cf48" />
+Файл с новым именем в новом пути
+<img width="1327" height="621" alt="image" src="https://github.com/user-attachments/assets/8272bbcc-397c-4c18-8ab7-cc866a2f0442" />
+
 
 ### 6. Импорт файла
 Нажимая на кнопку "Импорт", пользователю открывается диалоговое окно открытия файла-списка формата JSON, который пользователь сохранил данные после редактирования таблицы в приложении, при импорте добавляется каждая новая строка согласно нужному формату таблицы приложения. <br />
 Импорт файла
-<img width="1052" height="691" alt="image" src="https://github.com/user-attachments/assets/85c508df-01ec-429f-8215-096a3ea48c05" />
+<img width="1814" height="758" alt="image" src="https://github.com/user-attachments/assets/61b307ed-c762-452f-a986-66f9aa9e8b11" />
+
 После импорта
 <img width="1325" height="516" alt="image" src="https://github.com/user-attachments/assets/5b779e85-ccae-47f9-b0b4-735cd2d0cc93" /> <br />
 Особенности при импорте файла-списка: <br />
