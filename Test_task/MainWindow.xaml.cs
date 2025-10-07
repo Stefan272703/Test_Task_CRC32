@@ -128,7 +128,7 @@ namespace TestTask
                             stream.WriteByte(1); // Добавляем байт 
                         }
 
-                        crc32 = CRC32.CalculateCRC32(filepath);
+                        crc32 = await Task.Run(() => CRC32.CalculateCRC32(filepath));
                     }
                     var file = new FileJson { FileName = fileinfo.Name, Checksum = $"{crc32:X8}", FilePath = filepath };
 
@@ -293,6 +293,9 @@ namespace TestTask
                     {
                         int rowIndex = e.Row.GetIndex(); // получаем индекст строки, в которм произошло изменение ячйеки
                         var textbox = e.EditingElement as TextBox; // получаем textbox ячейки, которая редактируется
+                        
+                        //var FilePath = Files[rowIndex].FilePath; // путь к файлу
+                        //var OldFilePath = Files[rowIndex].OldFilePath; // старый путь к файл
 
                         string[] FileSplit = Files[rowIndex].FilePath.Split('\\').Last().Split('.');// получаем список значений разделенных точкой файла
                         string FileAndFormat = textbox.Text.Split('.').First(); // Заполняем файл с расширением
@@ -304,6 +307,12 @@ namespace TestTask
                         }
                         else
                         {
+
+                            foreach (char invalidchar in new[] { '?', '\\', '/', ':', '"', '*', '>', '<', '|'}) // смотрим запрещенные символы в названии файла
+                            {
+                                FileAndFormat = FileAndFormat.Replace(invalidchar, '_'); // заменяем на "_"
+                            }
+
                             for (int i = 1; i < FileSplit.Count(); i++) // считываем каждое значение файла, кромер первого
                             {
                                 FileAndFormat += '.' + FileSplit[i];
@@ -318,12 +327,20 @@ namespace TestTask
 
                             Files[rowIndex].FilePath = Files[rowIndex].FilePath.Substring(0, indexLastSlech) + "\\" + FileAndFormat;// Перезаписываем путь к файлу
 
+                            if (Files[rowIndex].FilePath == Files[rowIndex].OldFilePath) // если старый путь к файлу совпадает с новым
+                            {
+                                textbox.Text = FileAndFormat; // добавляем файл без знака изменения "*"
+                            }
+                            else
+                            {
+                                textbox.Text = FileAndFormat + "*"; // новое название файла с его форматом файла и со знаком изменения "*"
+                            }
+
+
                             if (Files[rowIndex].FilePath == Files[rowIndex].OldFilePath) // если совпадают путь к файлу и старый путь к файлу
                             {
                                 Files[rowIndex].OldFilePath = null;
                             }
-
-                            textbox.Text = FileAndFormat; // новое название файла с его форматом файла
                         }
                     }
                 }
@@ -367,13 +384,16 @@ namespace TestTask
                     && !File.Exists(file.FilePath)) // Если путь к файлу изменился, файл еще есть по старому пути и файл не находится по новому пути
                 {
                     File.Move(file.OldFilePath, file.FilePath); // перемещаем файл в новый путь или с новым именем
+                    file.FileName = file.FileName.Remove(file.FileName.Length - 1);
                     file.OldFilePath = null; // делаем старый путь к файлу пустым
+                    FileData.Items.Refresh(); // обновляем таблицу
                 }
                 else if (File.Exists(file.FilePath))
                 {
                     MessageBox.Show($"Файл {file.FilePath} уже есть по данному пути");
                 }
             }
+            MessageBox.Show("Сохранение завершено");
         }
 
 
@@ -408,18 +428,24 @@ namespace TestTask
                             {
                                 Files[currentRowIndex].OldFilePath = Files[currentRowIndex].FilePath; // устанавливаем старый путь к файлу
                             }
-                            
+
                             // задаем новый путь к файлу
-                            Files[currentRowIndex].FilePath = selectedPath + "\\" +$"{Files[currentRowIndex].FileName}";
-                            
-                            // Если Новый путь к файлу совпадает со старым
-                            if (Files[currentRowIndex].FilePath == Files[currentRowIndex].OldFilePath)
+                            if (Files[currentRowIndex].FileName.Contains('*'))
                             {
-                                Files[currentRowIndex].OldFilePath = null;
+                                Files[currentRowIndex].FilePath = selectedPath + "\\" + $"{Files[currentRowIndex].FileName.Remove(Files[currentRowIndex].FileName.Length - 1)}";
                             }
+                            else
+                            {
+                                Files[currentRowIndex].FilePath = selectedPath + "\\" + $"{Files[currentRowIndex].FileName}";
+                            }
+                            // Если Новый путь к файлу совпадает со старым
+                            if (Files[currentRowIndex].FilePath.StartsWith(Files[currentRowIndex].OldFilePath))
+                            {
+                                Files[currentRowIndex].FilePath = Files[currentRowIndex].OldFilePath;
+                                Files[currentRowIndex].OldFilePath = null;
 
+                            }
                             FileData.Items.Refresh(); // обновляем таблицу, для отображения новых данных
-
                         }
                     } 
                 }
